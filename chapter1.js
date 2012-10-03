@@ -9,20 +9,6 @@ function improve(guess, x) {
   return average(guess, x / guess);
 }
 
-function good_enough(guess, x) {
-  return Math.abs(square(guess) - x) < 0.001;
-}
-
-function sqrt_iter(guess, x) {
-  return good_enough(guess, x) ?
-    guess :
-    sqrt_iter(improve(guess, x), x);
-}
-
-function sqrt(x) {
-  return sqrt_iter(1.0, x);
-}
-
 // Exercises
 
 // 1.1
@@ -88,3 +74,25 @@ function sum_of_larger_squares(x, y, z) {
 // Since javascript uses applicative-order evaluation, the arguments to
 // new_if will try to be evaluated before new_if itself, resulting in
 // infinite recursion when trying to evaluate sqrt_iter by improving the guess.
+
+// 1.7
+// Small numbers will not calculate correctly because when the radicand is
+// small enough, the guess can become small enough such that the difference
+// between its square and that of the radicand is smaller than the specified
+// precision.
+// Large numbers will not calculate correctly because rounding due to finite
+// precision results in insignificant digits being lost, so the good_enough
+// condition will never be met.
+function good_enough(guess, x) {
+  return Math.abs(improve(guess, x) - guess) < (guess * 0.001);
+}
+
+function sqrt_iter(guess, x) {
+  return good_enough(guess, x) ?
+    guess :
+    sqrt_iter(improve(guess, x), x);
+}
+
+function sqrt(x) {
+  return sqrt_iter(1.0, x);
+}
