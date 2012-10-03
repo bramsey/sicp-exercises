@@ -1,6 +1,28 @@
 // non-exercise helpers
 function square(x) { return x*x; }
 
+function average(x, y) {
+  return (x + y) / 2;
+}
+
+function improve(guess, x) {
+  return average(guess, x / guess);
+}
+
+function good_enough(guess, x) {
+  return Math.abs(square(guess) - x) < 0.001;
+}
+
+function sqrt_iter(guess, x) {
+  return good_enough(guess, x) ?
+    guess :
+    sqrt_iter(improve(guess, x), x);
+}
+
+function sqrt(x) {
+  return sqrt_iter(1.0, x);
+}
+
 // Exercises
 
 // 1.1
@@ -61,3 +83,8 @@ function sum_of_larger_squares(x, y, z) {
 // the predicate, resulting in an infinite loop during evaluation of p.
 // For normal-order evaluation, the test will evaluate to 0 and never try
 // to evaluate the function p.
+
+// 1.6
+// Since javascript uses applicative-order evaluation, the arguments to
+// new_if will try to be evaluated before new_if itself, resulting in
+// infinite recursion when trying to evaluate sqrt_iter by improving the guess.

@@ -3,6 +3,23 @@
 ; non-exercise helpers
 (define (square x) (* x x))
 
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
 ; Exercises
 
 ; 1.1
@@ -59,3 +76,9 @@
 ; before the predicate, resulting in an infinite expansion of p.
 ; For normal-order evaluation, the test will evaluate to 0
 ; and never try to evaluate the function p.
+
+; 1.6
+; Since scheme uses applicative-order evaluation, the arguments to
+; new-if will try to be evaluated before new-if itself, resulting in
+; infinite recursion when trying to evaluate sqrt-iter by improving 
+; the guess.
