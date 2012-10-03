@@ -49,3 +49,7 @@
   (cond ((and (> x z) (> y z)) (sum-of-squares x y))
         ((and (> x y) (> z y)) (sum-of-squares x z))
         ((and (> y x) (> z x)) (sum-of-squares y z))))
+
+; 1.4
+; This procedure tests the sign of b then applys either the addition
+; or subtraction operator to a and b to add the absolute value of b to a.

@@ -51,3 +51,8 @@ function sum_of_larger_squares(x, y, z) {
     return sum_of_squares(y, z);
   }
 }
+
+// 1.4
+// This procedure tests the sign of b then applys either the
+// addition or subtraction operator to a and b to add the 
+// absolute value of b to a.
