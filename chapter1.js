@@ -36,3 +36,18 @@ if (a === 4) {
 //= 16
 
 // 1.2 (No equivalent in javascript)
+
+// 1.3
+function sum_of_squares(x, y) {
+  return square(x) + square(y);
+}
+
+function sum_of_larger_squares(x, y, z) {
+  if (x > z && y > z) {
+    return sum_of_squares(x, y);
+  } else if (x > y && z > y) {
+    return sum_of_squares(x, z);
+  } else {
+    return sum_of_squares(y, z);
+  }
+}

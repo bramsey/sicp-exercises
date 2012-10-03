@@ -37,3 +37,15 @@
          (else -1))
    (+ a 1))
 ;= 16
+
+; 1.2
+(/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
+   (* 3 (- 6 2) (- 2 7)))
+
+; 1.3
+(define (sum-of-squares x y) (+ (square x) (square y)))
+
+(define (sum-of-larger-squares x y z)
+  (cond ((and (> x z) (> y z)) (sum-of-squares x y))
+        ((and (> x y) (> z y)) (sum-of-squares x z))
+        ((and (> y x) (> z x)) (sum-of-squares y z))))
