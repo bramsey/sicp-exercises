@@ -53,6 +53,11 @@ function sum_of_larger_squares(x, y, z) {
 }
 
 // 1.4
-// This procedure tests the sign of b then applys either the
-// addition or subtraction operator to a and b to add the 
-// absolute value of b to a.
+// This procedure tests the sign of b then applys either the addition or 
+// subtraction operator to a and b to add the absolute value of b to a.
+
+// 1.5
+// For applicative-order evaluation, the test will try to evaluate p before
+// the predicate, resulting in an infinite loop during evaluation of p.
+// For normal-order evaluation, the test will evaluate to 0 and never try
+// to evaluate the function p.
