@@ -34,3 +34,5 @@ if (a === 4) {
 //= 6
 (a > b ? a : (a < b ? b : -1)) * (a + 1);
 //= 16
+
+// 1.2 (No equivalent in javascript)
