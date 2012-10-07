@@ -1,4 +1,3 @@
-#lang racket
 (require racket/include)
 (include "../common.rkt")
 
@@ -18,3 +17,9 @@
 
 (define (cubert x)
   (cubert-iter 1.0 x))
+
+; tests
+(cubert 8) ;= 2
+(cubert 1000) ;= 10
+(cubert .019683) ;= .27~
+(cubert 1000000000000000000000000000000000000000000000000) ;= 1e16

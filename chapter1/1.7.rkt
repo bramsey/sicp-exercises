@@ -1,4 +1,3 @@
-#lang racket
 (require racket/include)
 (include "../common.rkt")
 
@@ -7,6 +6,7 @@
 ; between its square and that of the radicand is smaller than the specified precision.
 ; Large numbers will not calculate correctly because rounding due to finite precision
 ; results in insignificant digits being lost, so the good-enough? condition will never be met.
+
 (define (improve guess x)
   (average guess (/ x guess)))
 
@@ -21,3 +21,8 @@
 
 (define (sqrt x)
   (sqrt-iter 1.0 x))
+
+; tests
+(sqrt 3025) ;= 55
+(sqrt .00000000002) ;= 4.472~e-06
+(sqrt 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000) ;= 10e48~

@@ -1,4 +1,3 @@
-#lang racket
 (require racket/include)
 (include "../common.rkt")
 
@@ -8,3 +7,8 @@
   (cond ((and (> x z) (> y z)) (sum-of-squares x y))
         ((and (> x y) (> z y)) (sum-of-squares x z))
         ((and (> y x) (> z x)) (sum-of-squares y z))))
+
+; tests
+(sum-of-larger-squares 1 4 3)
+(sum-of-larger-squares 4 3 1)
+(sum-of-larger-squares 3 1 4)
